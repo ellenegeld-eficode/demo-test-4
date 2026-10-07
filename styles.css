@@ -1,3 +1,16 @@
+:root {
+  --bg: #0b1d2a;
+  --surface: #12304a;
+  --primary: #1e88e5;
+  --primary-dark: #1565c0;
+  --primary-light: #64b5f6;
+  --accent: #2ecc71;
+  --accent-dark: #1b9e56;
+  --accent-light: #7be3a5;
+  --text: #f1f8ff;
+  --text-dark: #0b1d2a;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,7 +20,8 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: #1c1c1e;
+  background: var(--bg);
+  color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
@@ -15,7 +29,7 @@ body {
   width: 320px;
   padding: 16px;
   border-radius: 16px;
-  background: #000;
+  background: var(--surface);
 }
 
 .display {
@@ -23,7 +37,9 @@ body {
   min-height: 80px;
   padding: 8px 12px;
   margin-bottom: 12px;
-  color: #fff;
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
   font-size: 2.5rem;
   line-height: 64px;
   text-align: right;
@@ -34,29 +50,29 @@ body {
 .keys {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 8px;
 }
 
 .key {
   height: 64px;
   border: 0;
   border-radius: 12px;
-  background: #333336;
-  color: #fff;
+  background: var(--bg);
+  color: var(--text);
   font-size: 1.5rem;
   cursor: pointer;
 }
 
 .key:hover {
-  filter: brightness(1.2);
-}
-
-.key:active {
   filter: brightness(1.5);
 }
 
+.key:active {
+  filter: brightness(0.8);
+}
+
 .key:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid var(--accent-light);
   outline-offset: 2px;
 }
 
@@ -65,10 +81,32 @@ body {
 }
 
 .key-fn {
-  background: #a5a5a8;
-  color: #000;
+  background: var(--primary);
+  color: var(--text-dark);
+}
+
+.key-fn:hover {
+  background: var(--primary-light);
+  filter: none;
+}
+
+.key-fn:active {
+  background: var(--primary-dark);
+  color: var(--text);
+  filter: none;
 }
 
 .key-op {
-  background: #ff9f0a;
+  background: var(--accent);
+  color: var(--text-dark);
+}
+
+.key-op:hover {
+  background: var(--accent-light);
+  filter: none;
+}
+
+.key-op:active {
+  background: var(--accent-dark);
+  filter: none;
 }
